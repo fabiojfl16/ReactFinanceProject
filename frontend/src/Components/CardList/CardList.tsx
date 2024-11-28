@@ -19,13 +19,15 @@ const CardList: React.FC<Props> = (props: Props): JSX.Element => {
                                 id={result.symbol}
                                 key={generateId()}
                                 searchResult={result}
-                                onPortfolioCreate={props.onPortfolioCreate} 
+                                onPortfolioCreate={props.onPortfolioCreate}
                             />
                         )
                     })
                 ) :
                 (
-                    <h1>No results</h1>
+                    <p className="mb-3 mt-3 text-xl font-semibold text-center md:text-xl">
+                        No results!
+                    </p>
                 )
         }
     </>;
