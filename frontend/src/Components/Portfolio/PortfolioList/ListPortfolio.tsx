@@ -1,8 +1,9 @@
-import React from 'react'
+import { SyntheticEvent } from 'react'
 import CardPortfolio from '../CardPortfolio/CardPortfolio';
 
 interface Props {
     portfolioValues: string[];
+    onPortfolioDelete: (e: SyntheticEvent) => void;
 }
 
 const ListPortfolio = (props: Props) => {
@@ -13,7 +14,10 @@ const ListPortfolio = (props: Props) => {
                 {
                     props.portfolioValues &&
                     props.portfolioValues.map((value) => {
-                        return <CardPortfolio portfolioValue={value} />
+                        return <CardPortfolio 
+                                    portfolioValue={value} 
+                                    onPortfolioDelete={props.onPortfolioDelete} 
+                                />
                     })
                 }
             </ul>

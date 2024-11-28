@@ -21,11 +21,19 @@ function App() {
 
     const exists = portfolioValues.find((value) => value === e.target[0].value);
 
-    if (exists) {
+    if (exists)
       return;
-    }
 
     const updatedPortfolio = [...portfolioValues, e.target[0].value];
+    setPortfolioValues(updatedPortfolio);
+  }
+
+  const onPortfolioDelete = (e: any) => {
+    e.preventDefault();
+
+    const updatedPortfolio = portfolioValues.filter((value) => {
+      return value !== e.target[0].value
+    });
     setPortfolioValues(updatedPortfolio);
   }
 
@@ -46,12 +54,17 @@ function App() {
       <Search
         onSearchSubmit={onSearchSubmit}
         search={search}
-        handleSearchChange={handleSearchChange} />
+        handleSearchChange={handleSearchChange}
+      />
       {serverError && <div>Unable to connect to API</div>}
-      <ListPortfolio portfolioValues={portfolioValues} />
+      <ListPortfolio
+        portfolioValues={portfolioValues}
+        onPortfolioDelete={onPortfolioDelete}
+      />
       <CardList
         searchResults={searchResult}
-        onPortfolioCreate={onPortfolioCreate} />
+        onPortfolioCreate={onPortfolioCreate}
+      />
     </div>
   );
 }
