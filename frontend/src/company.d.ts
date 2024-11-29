@@ -4,9 +4,9 @@ export interface CompanySearch {
     name: string;
     stockExchange: string;
     symbol: string;
-}
-
-export interface CompanyProfile {
+  }
+  
+  export interface CompanyProfile {
     symbol: string;
     price: number;
     beta: number;
@@ -42,9 +42,9 @@ export interface CompanyProfile {
     isActivelyTrading: boolean;
     isAdr: boolean;
     isFund: boolean;
-}
-
-export interface CompanyKeyRatios {
+  }
+  
+  export interface CompanyKeyRatios {
     dividendYielTTM: number;
     dividendYielPercentageTTM: number;
     peRatioTTM: number;
@@ -103,9 +103,9 @@ export interface CompanyKeyRatios {
     enterpriseValueMultipleTTM: number;
     priceFairValueTTM: number;
     dividendPerShareTTM: number;
-}
-
-export interface CompanyIncomeStatement {
+  }
+  
+  export interface CompanyIncomeStatement {
     date: string;
     symbol: string;
     reportedCurrency: string;
@@ -144,9 +144,9 @@ export interface CompanyIncomeStatement {
     weightedAverageShsOutDil: number;
     link: string;
     finalLink: string;
-}
-
-export interface CompanyBalanceSheet {
+  }
+  
+  export interface CompanyBalanceSheet {
     date: string;
     symbol: string;
     reportedCurrency: string;
@@ -201,9 +201,9 @@ export interface CompanyBalanceSheet {
     netDebt: number;
     link: string;
     finalLink: string;
-}
-
-export interface CompanyCashFlow {
+  }
+  
+  export interface CompanyCashFlow {
     date: string;
     symbol: string;
     reportedCurrency: string;
@@ -244,4 +244,97 @@ export interface CompanyCashFlow {
     freeCashFlow: number;
     link: string;
     finalLink: string;
-}
+  }
+  
+  export interface CompanyKeyMetrics {
+    revenuePerShareTTM: number;
+    netIncomePerShareTTM: number;
+    operatingCashFlowPerShareTTM: number;
+    freeCashFlowPerShareTTM: number;
+    cashPerShareTTM: number;
+    bookValuePerShareTTM: number;
+    tangibleBookValuePerShareTTM: number;
+    shareholdersEquityPerShareTTM: number;
+    interestDebtPerShareTTM: number;
+    marketCapTTM: number;
+    enterpriseValueTTM: number;
+    peRatioTTM: number;
+    priceToSalesRatioTTM: number;
+    pocfratioTTM: number;
+    pfcfRatioTTM: number;
+    pbRatioTTM: number;
+    ptbRatioTTM: number;
+    evToSalesTTM: number;
+    enterpriseValueOverEBITDATTM: number;
+    evToOperatingCashFlowTTM: number;
+    evToFreeCashFlowTTM: number;
+    earningsYieldTTM: number;
+    freeCashFlowYieldTTM: number;
+    debtToEquityTTM: number;
+    debtToAssetsTTM: number;
+    netDebtToEBITDATTM: number;
+    currentRatioTTM: number;
+    interestCoverageTTM: number;
+    incomeQualityTTM: number;
+    dividendYieldTTM: number;
+    dividendYieldPercentageTTM: number;
+    payoutRatioTTM: number;
+    salesGeneralAndAdministrativeToRevenueTTM: number;
+    researchAndDevelopementToRevenueTTM: number;
+    intangiblesToTotalAssetsTTM: number;
+    capexToOperatingCashFlowTTM: number;
+    capexToRevenueTTM: number;
+    capexToDepreciationTTM: number;
+    stockBasedCompensationToRevenueTTM: number;
+    grahamNumberTTM: number;
+    roicTTM: number;
+    returnOnTangibleAssetsTTM: number;
+    grahamNetNetTTM: number;
+    workingCapitalTTM: number;
+    tangibleAssetValueTTM: number;
+    netCurrentAssetValueTTM: number;
+    investedCapitalTTM: number;
+    averageReceivablesTTM: number;
+    averagePayablesTTM: number;
+    averageInventoryTTM: number;
+    daysSalesOutstandingTTM: number;
+    daysPayablesOutstandingTTM: number;
+    daysOfInventoryOnHandTTM: number;
+    receivablesTurnoverTTM: number;
+    payablesTurnoverTTM: number;
+    inventoryTurnoverTTM: number;
+    roeTTM: number;
+    capexPerShareTTM: number;
+    dividendPerShareTTM: number;
+    debtToMarketCapTTM: number;
+  }
+  
+  export interface CompanyHistoricalDividend {
+    symbol: string;
+    historical: Dividend[];
+  }
+  
+  export interface Dividend {
+    date: string;
+    label: string;
+    adjDividend: number;
+    dividend: number;
+    recordDate: string;
+    paymentDate: string;
+    declarationDate: string;
+  }
+  
+  export interface CompanyCompData {
+    symbol: string;
+    peersList: string[];
+  }
+  
+  export interface CompanyTenK {
+    symbol: string;
+    fillingDate: string;
+    acceptedDate: string;
+    cik: string;
+    type: string;
+    link: string;
+    finalLink: string;
+  }
