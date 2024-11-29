@@ -1,27 +1,14 @@
-import { testIncomeStatementData } from "./testData"
+type Props = {
+    config: any;
+    data: any;
+}
 
-const data = testIncomeStatementData;
-type Props = {}
-
-type Company = (typeof data)[0];
-
-const configs = [
-    {
-        label: "Year",
-        render: (company: Company) => company.acceptedDate
-    },
-    {
-        label: "Cost of Revenue",
-        render: (company: Company) => company.costOfRevenue
-    }
-];
-
-const Table = (props: Props) => {
-    const renderedRows = data.map((company) => {
+const Table = ({ data, config }: Props) => {
+    const renderedRows = data.map((company: any) => {
         return (
             <tr key={company.cik}>
                 {
-                    configs.map((val: any) => {
+                    config.map((val: any) => {
                         return <td className="p3">{val.render(company)}</td>
                     })
                 }
@@ -29,7 +16,7 @@ const Table = (props: Props) => {
         );
     });
 
-    const renderedHeaders = configs.map((config: any) => {
+    const renderedHeaders = config.map((config: any) => {
         return (
             <th
                 key={config.label}
