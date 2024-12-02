@@ -3,6 +3,7 @@ import { CompanyCashFlow } from "../../company";
 import { useEffect, useState } from "react";
 import { getGetCashFlowStatement } from "../../api";
 import Table from "../Table/Table";
+import Spinner from "../Spinner/Spinner";
 
 type Props = {}
 
@@ -66,7 +67,7 @@ const CashFlowStatement = (props: Props) => {
                     )
                     :
                     (
-                        <h1>No results!</h1>
+                        <Spinner />
                     )
             }
         </>

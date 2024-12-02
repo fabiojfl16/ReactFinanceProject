@@ -3,6 +3,7 @@ import { CompanyKeyMetrics } from "../../company";
 import { useEffect, useState } from "react";
 import { getKeyMetrics } from "../../api";
 import RatioList from "../RatioList/RatioList";
+import Spinner from "../Spinner/Spinner";
 
 type Props = {}
 
@@ -92,7 +93,7 @@ const CompanyProfile = (props: Props) => {
             </>
           ) :
           (
-            <>Loading...</>
+            <Spinner />
           )}
     </>
   )

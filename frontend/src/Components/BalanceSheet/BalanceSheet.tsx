@@ -3,6 +3,7 @@ import { useOutletContext } from "react-router";
 import { getBalanceSheet } from "../../api";
 import { CompanyBalanceSheet } from "../../company";
 import RatioList from "../RatioList/RatioList";
+import Spinner from "../Spinner/Spinner";
 
 type Props = {}
 
@@ -62,35 +63,35 @@ const config = [
 ];
 
 const BalanceSheet = (props: Props) => {
-    const ticker = useOutletContext<string>();
-    const [balanceSheet, setBalanceSheet] = useState<CompanyBalanceSheet>();
+  const ticker = useOutletContext<string>();
+  const [balanceSheet, setBalanceSheet] = useState<CompanyBalanceSheet>();
 
-    useEffect(() => {
-        const balanceSheetFetch = async () => {
-            var value = await getBalanceSheet(ticker);
+  useEffect(() => {
+    const balanceSheetFetch = async () => {
+      var value = await getBalanceSheet(ticker);
 
-            if (typeof value !== 'string' && value !== undefined && Array.isArray(value.data))
-                setBalanceSheet(value!.data[0]);
-        }
-        balanceSheetFetch();
-    }, [ticker]);
+      if (typeof value !== 'string' && value !== undefined && Array.isArray(value.data))
+        setBalanceSheet(value!.data[0]);
+    }
+    balanceSheetFetch();
+  }, [ticker]);
 
-    return (
-        <>
-          {
-            balanceSheet ?
-              (
-                <>
-                   <RatioList config={config} data={balanceSheet} />
-                </>
-              )
-              :
-              (
-                <>Loading...</>
-              )
-          }
-        </>
-      )
+  return (
+    <>
+      {
+        balanceSheet ?
+          (
+            <>
+              <RatioList config={config} data={balanceSheet} />
+            </>
+          )
+          :
+          (
+            <Spinner />
+          )
+      }
+    </>
+  )
 }
 
 export default BalanceSheet
